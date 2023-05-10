@@ -1,11 +1,12 @@
 from tkinter import *
 from tkinter import messagebox
 
-from function_crud import *
+#from function_crud import *
+from function_crud_decorator import *
 
 # ------------------------- Funciones
 
-DBDD="userd_DBBB.db"
+DBDD="userd_DBBB_Decorator.db"
 
 def exit():
     value = messagebox.askquestion("Salir", "¿Desea salir de la aplicación?")
@@ -42,6 +43,7 @@ def create_record():
 def read_record(): 
     query="SELECT * FROM users WHERE ID=" + id.get()
     users = read(DBDD, query)
+
     if len(users) == 0:
         messagebox.showwarning("Alerta!", "Registro no existe en la DB.!")
         id_old = id.get()
